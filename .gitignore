@@ -11,3 +11,9 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore Coveralls reports
+/coverage
+
+# Ignore environment variables
+.env
