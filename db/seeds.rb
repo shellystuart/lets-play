@@ -1,74 +1,74 @@
 sponge = Item.find_or_create_by!({
   name: "sponges"
-  })
+})
 
 scissors = Item.find_or_create_by!({
   name: "scissors"
-  })
+})
 
 flour = Item.find_or_create_by!({
   name: "flour"
-  })
+})
 
 water = Item.find_or_create_by!({
   name: "water"
-  })
+})
 
 food_coloring = Item.find_or_create_by!({
   name: "food coloring"
-  })
+})
 
 ziploc_bags = Item.find_or_create_by!({
   name: "Ziploc bags"
-  })
+})
 
 scotch_tape = Item.find_or_create_by!({
   name: "Scotch tape"
-  })
+})
 
 bubbles = Item.find_or_create_by!({
   name: "bubbles"
-  })
+})
 
 plastic_bottle = Item.find_or_create_by!({
   name: "plastic bottles"
-  })
+})
 
 mesh_fruit_bag = Item.find_or_create_by!({
   name: "mesh fruit bag"
-  })
+})
 
 duct_tape = Item.find_or_create_by!({
   name: "duct tape"
-  })
+})
 
 tempera_paint = Item.find_or_create_by!({
   name: "tempera paint"
-  })
+})
 
 salad_spinner = Item.find_or_create_by!({
   name: "salad spinner"
-  })
+})
 
 paper = Item.find_or_create_by!({
   name: "paper"
-  })
+})
 
 paintbrush = Item.find_or_create_by!({
   name: "paint brushes"
-  })
+})
 
 toilet_paper_roll = Item.find_or_create_by!({
   name: "toilet paper rolls"
-  })
+})
 
 rice = Item.find_or_create_by!({
   name: "rice"
-  })
+})
 
 glue_sticks = Item.find_or_create_by!({
   name: "glue sticks"
-  })
+})
 
 tangrams = Activity.find_or_create_by!({
   title: "Sponge Tangrams",
@@ -86,17 +86,17 @@ tangrams = Activity.find_or_create_by!({
   Use the sponge tangrams to build shapes, copy forms, and practice form recognition and form constancy.  This is a great exercise in visual motor integration and visual perceptual skills.',
   image: "sponge-tangrams-activity-kids.png",
   url: "http://www.sugaraunts.com/2016/07/sponge-tangrams.html"
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: tangrams.id,
   item_id: sponge.id
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: tangrams.id,
   item_id: scissors.id
-  })
+})
 
 squishy_bags = Activity.find_or_create_by!({
   title: "Squishy Sensory Bags",
@@ -121,34 +121,34 @@ squishy_bags = Activity.find_or_create_by!({
   Explore the squishy bag for a sensory experience, watch what happens as you squeeze, squish, press, etc.  Cause and effect, one action creates a another reaction.",
   image: "Squishy-Sensory-Bags-for-pre-writing-activities.jpg",
   url: "http://www.learning4kids.net/2015/06/30/how-to-make-squishy-sensory-bags/"
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: squishy_bags.id,
   item_id: flour.id,
   quantity: "1 cup"
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: squishy_bags.id,
   item_id: water.id,
   quantity: "6 tablespoons"
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: squishy_bags.id,
   item_id: food_coloring.id,
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: squishy_bags.id,
   item_id: ziploc_bags.id,
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: squishy_bags.id,
   item_id: scotch_tape.id,
-  })
+})
 
 bubble_blower = Activity.find_or_create_by!({
   title: "DIY Recycled Bottle Bubble Blower",
@@ -158,32 +158,32 @@ bubble_blower = Activity.find_or_create_by!({
   Add some bubble solution in a shallow bowl so your bottle will fit over. Dip in the solution and then blow!",
   image: "recycled-bottle-bubble-blower.jpg",
   url: "http://www.hellowonderful.co/post/DIY-RECYCLED-BOTTLE-BUBBLE-BLOWER"
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: bubble_blower.id,
   item_id: bubbles.id
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: bubble_blower.id,
   item_id: plastic_bottle.id
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: bubble_blower.id,
   item_id: scissors.id
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: bubble_blower.id,
   item_id: mesh_fruit_bag.id
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: bubble_blower.id,
   item_id: duct_tape.id
-  })
+})
 
 spinner_art = Activity.find_or_create_by!({
   title: "Spinner Art",
@@ -193,22 +193,22 @@ spinner_art = Activity.find_or_create_by!({
   Take the lid off and ooh and ahh over the finished product.  Have lots of paper ready, because this activity begs to be repeated over and over and over again.",
   image: "spin_art_hearts.jpg",
   url: "http://lets-explore.net/blog/2009/02/spin-art-hearts/"
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: spinner_art.id,
   item_id: paper.id
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: spinner_art.id,
   item_id: salad_spinner.id
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: spinner_art.id,
   item_id: tempera_paint.id
-  })
+})
 
 color_bag_mixing = Activity.find_or_create_by!({
   title: "Color Bag Mixing/Color Smushing",
@@ -218,27 +218,27 @@ color_bag_mixing = Activity.find_or_create_by!({
   When your child is finished smushing, open the bag up and paint! This is such a great way to learn about color and a fun alternative to mixing colors with a brush. It’s a sensory activity that extends into art!",
   image: "color-bag-mixing.jpg",
   url: "http://www.whatdowedoallday.com/2008/01/color-smushing.html"
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: color_bag_mixing.id,
   item_id: ziploc_bags.id
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: color_bag_mixing.id,
   item_id: tempera_paint.id
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: color_bag_mixing.id,
   item_id: paintbrush.id
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: color_bag_mixing.id,
   item_id: paper.id
-  })
+})
 
 stamped_heart = Activity.find_or_create_by!({
   title: "Stamped Heart Art",
@@ -250,22 +250,22 @@ stamped_heart = Activity.find_or_create_by!({
   Let your toddler (or even an older child would love this) just stamp away. No right or wrong way here. They just get the satisfaction of making a heart and how very cool that is!",
   image: "stamped-heart-art.jpg",
   url: "http://handsonaswegrow.com/stamped-heart/"
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: stamped_heart.id,
   item_id: paper.id
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: stamped_heart.id,
   item_id: tempera_paint.id
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: stamped_heart.id,
   item_id: toilet_paper_roll.id
-  })
+})
 
 tp_roll_maracas = Activity.find_or_create_by!({
   title: "TP Roll Maracas",
@@ -283,39 +283,39 @@ tp_roll_maracas = Activity.find_or_create_by!({
   Once your maracas are dry, make some music!",
   image: "tp-maracas.jpg",
   url: "http://www.pbs.org/parents/crafts-for-kids/tp-roll-maracas-video/"
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: tp_roll_maracas.id,
   item_id: toilet_paper_roll.id
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: tp_roll_maracas.id,
   item_id: duct_tape.id
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: tp_roll_maracas.id,
   item_id: tempera_paint.id
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: tp_roll_maracas.id,
   item_id: paintbrush.id
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: tp_roll_maracas.id,
   item_id: rice.id
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: tp_roll_maracas.id,
   item_id: glue_sticks.id
-  })
+})
 
 Activityitem.find_or_create_by!({
   activity_id: tp_roll_maracas.id,
   item_id: scissors.id
-  })
+})
