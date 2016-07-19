@@ -8,6 +8,7 @@ feature "user sees index page with search form" do
 
   scenario "user visits root path and sees search form" do
     visit root_path
+
     expect(page).to have_content("Welcome! Select some items")
     expect(page).to have_content(item.name)
     expect(page).to have_content(item2.name)
@@ -15,5 +16,20 @@ feature "user sees index page with search form" do
     expect(page).to have_selector("input[value='#{item2.id}']")
     expect(page).not_to have_content(activity.title)
     expect(page).not_to have_content(activity2.title)
+  end
+
+  scenario "user fills out search form and sees results" do
+    FactoryGirl.create(:activityitem, activity_id: activity.id, item_id: item.id)
+    FactoryGirl.create(:activityitem, activity_id: activity2.id, item_id: item.id)
+    FactoryGirl.create(:activityitem, activity_id: activity2.id, item_id: item2.id)
+
+    visit activities_path
+    check item.name
+    click_button "Search"
+
+    expect(page).to have_content(activity.title)
+    expect(page).to have_content(activity.description)
+    expect(page).not_to have_content(activity2.title)
+    expect(page).not_to have_content(activity2.description)
   end
 end
