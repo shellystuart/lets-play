@@ -1,9 +1,9 @@
 <div class="row">
   <div class="small-12 medium-4 columns">
     <%= form_tag(activities_path, :method => "get", id: "search-form") do %>
-      <%= label :search, "Items" %>
+      <%= label :item_ids, "Items" %>
       <div class="row">
-        <%= collection_check_boxes(:search, :items, @items, :id, :name, include_hidden: false) do |b| %>
+        <%= collection_check_boxes(:activity, :item_ids, @items, :id, :name, include_hidden: false) do |b| %>
           <div class="small-6 columns"><%= b.label %><%= b.check_box %></div>
         <% end %>
       </div>
@@ -11,6 +11,15 @@
     <% end %>
   </div>
   <div class="small-12 medium-8 columns">
-    <p>Welcome! Select some items so we can suggest an activity!</p>
+    <% if @searchresult.empty? %>
+      <p>Welcome! Select some items so we can suggest an activity!</p>
+    <% else %>
+      <% @searchresult.each do |activity| %>
+        <div class="callout primary">
+          <h3><%= activity.title %></h3>
+          <p><%= activity.description %></p>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>

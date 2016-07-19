@@ -1,6 +1,6 @@
 FactoryGirl.define do
-  factory :activityitems do
+  factory :activityitem do
     activity
-    user
+    item
   end
 end
