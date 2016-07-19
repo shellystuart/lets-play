@@ -21,6 +21,7 @@ end
 group :test do
   gem 'launchy', require: false
   gem 'coveralls', require: false
+  gem 'show_me_the_cookies'
 end
 
 group :production do
