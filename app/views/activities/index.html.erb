@@ -1,25 +1,29 @@
-<div class="row">
-  <div class="small-12 medium-4 columns">
+<div class="content row">
+  <div class="off-canvas position-left reveal-for-medium" id="offCanvas" data-off-canvas>
     <%= form_tag(activities_path, :method => "get", id: "search-form") do %>
-      <%= label :item_ids, "Items" %>
-      <div class="row">
+      <%= label :item_ids, "Items", class: "header" %>
+      <div class="form">
         <%= collection_check_boxes(:cookies, :item_ids, @items, :id, :name, { checked: @useritems } ) do |b| %>
-          <div class="small-6 columns"><%= b.label %><%= b.check_box %></div>
+          <div class="checkbox columns"><%= b.label %><%= b.check_box %></div>
         <% end %>
       </div>
-      <div><%= submit_tag "Search", :name => nil %></div>
+      <div class="small-12 columns text-center"><%= submit_tag "Search", :name => nil, class: "button" %></div>
     <% end %>
   </div>
-  <div class="small-12 medium-8 columns">
+  <div class="off-canvas-content" data-off-canvas-content>
     <% if @searchresult.empty? %>
-      <p>Welcome! Select some items so we can suggest an activity!</p>
+      <div class="callout primary">Welcome! Select some items so we can suggest an activity!</div>
     <% else %>
-      <% @searchresult.each do |activity| %>
-        <div class="callout primary">
-          <h3><%= activity.title %></h3>
-          <p><%= activity.description %></p>
-        </div>
-      <% end %>
+      <ul class="accordion" data-accordion>
+        <% @searchresult.each do |activity| %>
+          <li class="accordion-item" data-accordion-item>
+            <a href="#" class="accordion-title"><%= activity.title %></a>
+            <div class="accordion-content" data-tab-content>
+              <p><%= activity.description %></p>
+            </div>
+          </li>
+        <% end %>
+      </ul>
     <% end %>
   </div>
 </div>

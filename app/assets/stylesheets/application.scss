@@ -1,1 +1,27 @@
 @import "foundation_and_overrides";
+
+.form {
+  width: 414px;
+}
+
+.checkbox {
+  width: 133px;
+}
+
+.header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+.top-bar {
+  margin-bottom: 10px;
+}
+
+.accordion-title {
+  font-size: 1.5rem;
+}
+
+.off-canvas-wrapper-inner, .off-canvas{
+  min-height: 100vh;
+}
