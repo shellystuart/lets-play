@@ -3,7 +3,7 @@
     <%= form_tag(activities_path, :method => "get", id: "search-form") do %>
       <%= label :item_ids, "Items" %>
       <div class="row">
-        <%= collection_check_boxes(:activity, :item_ids, @items, :id, :name, include_hidden: false) do |b| %>
+        <%= collection_check_boxes(:cookies, :item_ids, @items, :id, :name, { checked: @useritems } ) do |b| %>
           <div class="small-6 columns"><%= b.label %><%= b.check_box %></div>
         <% end %>
       </div>
