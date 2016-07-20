@@ -1,4 +1,6 @@
 require "coveralls"
+require "capybara-webkit"
+
 Coveralls.wear!("rails")
 
 RSpec.configure do |config|
@@ -81,4 +83,9 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+end
+
+Capybara::Webkit.configure do |config|
+  config.allow_unknown_urls
+  Capybara.javascript_driver = :webkit
 end
