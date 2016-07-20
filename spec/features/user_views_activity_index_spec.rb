@@ -27,7 +27,10 @@ feature "user sees index page with search form" do
     click_button "Search"
 
     expect(page).to have_content(activity.title)
+    expect(page).to have_css("img[src*='#{activity.image}']")
     expect(page).to have_content(activity.description)
+    expect(page).to have_content(activity.instructions)
+    expect(page).to have_content(activity.url)
     expect(page).not_to have_content(activity2.title)
     expect(page).not_to have_content(activity2.description)
     item_checkbox = find("#cookies_item_ids_#{item.id}")

@@ -16,6 +16,7 @@ group :development, :test do
   gem 'shoulda'
   gem 'valid_attribute'
   gem 'faker'
+  gem 'capybara-webkit'
 end
 
 group :test do
