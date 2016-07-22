@@ -88,5 +88,5 @@ end
 Capybara::Webkit.configure do |config|
   config.allow_unknown_urls
   Capybara.javascript_driver = :webkit
-  Capybara.default_wait_time = 5
+  Capybara.default_max_wait_time = 30
 end
