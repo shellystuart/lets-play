@@ -1,5 +1,5 @@
 require "coveralls"
-require "capybara-webkit"
+require "capybara/poltergeist"
 
 Coveralls.wear!("rails")
 
@@ -85,8 +85,4 @@ RSpec.configure do |config|
 =end
 end
 
-Capybara::Webkit.configure do |config|
-  config.allow_unknown_urls
-  Capybara.javascript_driver = :webkit
-  Capybara.default_max_wait_time = 30
-end
+Capybara.javascript_driver = :poltergeist
