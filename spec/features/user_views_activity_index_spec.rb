@@ -47,7 +47,7 @@ feature "user sees index page with search form", js: true do
     expect(page).not_to have_content(activity2.description)
   end
 
-  scenario "user fills out search form and clicks on activity result to view it" do
+  scenario "user fills out search form and clicks on result to view it" do
     visit activities_path
     page.find(".Select-arrow").click
     find("div.Select-option", text: item.name).click

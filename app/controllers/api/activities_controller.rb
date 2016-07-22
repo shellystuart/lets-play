@@ -1,6 +1,5 @@
 class Api::ActivitiesController < ApplicationController
   def index
-    items = Item.all
     activities = Activity.all
     searchresult = []
     useritems = []

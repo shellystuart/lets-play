@@ -1,5 +1,6 @@
 @import "foundation_and_overrides";
 @import "react-select";
+$grey: #e6e6e6;
 
 .form {
   width: 414px;
@@ -24,8 +25,8 @@
 }
 
 .acc-content {
+  border: 1px solid $grey;
   padding: 1rem;
-  border: 1px solid #e6e6e6;
 }
 
 .off-canvas-wrapper-inner, .off-canvas{
