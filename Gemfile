@@ -17,7 +17,6 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'faker'
   gem 'capybara-webkit'
-  gem 'poltergeist'
 end
 
 group :test do
