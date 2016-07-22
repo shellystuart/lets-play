@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "user sees index page with search form" do
+feature "user sees index page with search form", js: true do
   let!(:activity) { FactoryGirl.create(:activity) }
   let!(:activity2) { FactoryGirl.create(:activity) }
   let!(:item) { FactoryGirl.create(:item) }
@@ -35,5 +35,34 @@ feature "user sees index page with search form" do
     expect(page).not_to have_content(activity2.description)
     item_checkbox = find("#cookies_item_ids_#{item.id}")
     expect(item_checkbox).to be_checked
+  end
+
+  scenario "user fills out search form and sees list of activities" do
+    visit activities_path
+    check item.name
+    check item2.name
+    click_button "Search"
+
+    expect(page).to have_content(activity.title)
+    expect(page).to have_content(activity2.title)
+    expect(page).not_to have_content(activity.description)
+    expect(page).not_to have_content(activity2.description)
+  end
+
+  scenario "user fills out search form and clicks on activity result to view it" do
+    visit activities_path
+    check item.name
+    check item2.name
+    click_button "Search"
+    click_on activity.title
+
+    expect(page).to have_content(activity.title)
+    expect(page).to have_content(activity2.title)
+    expect(page).to have_content(activity.description)
+    expect(page).to have_css("img[src*='#{activity.image}']")
+    expect(page).to have_content(activity.description)
+    expect(page).to have_content(activity.instructions)
+    expect(page).to have_content(activity.url)
+    expect(page).not_to have_content(activity2.description)
   end
 end

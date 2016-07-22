@@ -17,3 +17,11 @@
 
 # Ignore environment variables
 .env
+
+# Ignore extra React files
+/node_modules
+/app/assets/javascripts/bundle.js
+/react/coverage
+
+# Ignore ESLint config
+.eslintrc.json

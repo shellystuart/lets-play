@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "user restarts session and sees persisted results" do
+feature "user restarts session and sees persisted results", js: true do
   let!(:activity) { FactoryGirl.create(:activity) }
   let!(:activity2) { FactoryGirl.create(:activity) }
   let!(:item) { FactoryGirl.create(:item) }
