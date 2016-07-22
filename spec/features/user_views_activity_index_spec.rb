@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "user sees index page with search form" do
+feature "user sees index page with search form", js: true do
   let!(:activity) { FactoryGirl.create(:activity) }
   let!(:activity2) { FactoryGirl.create(:activity) }
   let!(:item) { FactoryGirl.create(:item) }
@@ -9,13 +9,9 @@ feature "user sees index page with search form" do
   let!(:ai2) { FactoryGirl.create(:activityitem, activity_id: activity2.id, item_id: item.id) }
   let!(:ai3) { FactoryGirl.create(:activityitem, activity_id: activity2.id, item_id: item2.id) }
 
-  before(:each) do
+  scenario "user visits root path and sees search form" do
     visit root_path
-  end
-
-  scenario "user visits root path and sees search form", js: true do
-    # visit root_path
-    page.find(".Select-arrow").click
+    page.find(".Select-arrow").trigger("click")
 
     expect(page).to have_content("Welcome! Select some items")
     expect(page).to have_content(item.name)
@@ -24,10 +20,10 @@ feature "user sees index page with search form" do
     expect(page).not_to have_content(activity2.title)
   end
 
-  scenario "user fills out search form and sees results", js: true do
-    # visit activities_path
-    page.find(".Select-arrow").click
-    find("div.Select-option", text: item.name).click
+  scenario "user fills out search form and sees results" do
+    visit activities_path
+    page.find(".Select-arrow").trigger("click")
+    find("div.Select-option", text: item.name).trigger("click")
 
     expect(page).to have_content(activity.title)
     expect(page).not_to have_css("img[src*='#{activity.image}']")
@@ -38,12 +34,12 @@ feature "user sees index page with search form" do
     expect(page).to have_css(".Select-value-label", text: item.name)
   end
 
-  scenario "user fills out search form and sees multiple activities", js: true do
-    # visit activities_path
-    page.find(".Select-arrow").click
-    find("div.Select-option", text: item.name).click
+  scenario "user fills out search form and sees multiple activities" do
+    visit activities_path
+    page.find(".Select-arrow").trigger("click")
+    find("div.Select-option", text: item.name).trigger("click")
     sleep(1)
-    find("div.Select-option", text: item2.name).click
+    find("div.Select-option", text: item2.name).trigger("click")
 
     expect(page).to have_content(activity.title)
     expect(page).to have_content(activity2.title)
@@ -51,12 +47,12 @@ feature "user sees index page with search form" do
     expect(page).not_to have_content(activity2.description)
   end
 
-  scenario "user fills out search form and clicks on result to view it", js: true do
-    # visit activities_path
-    page.find(".Select-arrow").click
-    find("div.Select-option", text: item.name).click
+  scenario "user fills out search form and clicks on result to view it" do
+    visit activities_path
+    page.find(".Select-arrow").trigger("click")
+    find("div.Select-option", text: item.name).trigger("click")
     sleep(1)
-    find("div.Select-option", text: item2.name).click
+    find("div.Select-option", text: item2.name).trigger("click")
     click_on activity.title
 
     expect(page).to have_content(activity.title)
@@ -69,12 +65,12 @@ feature "user sees index page with search form" do
     expect(page).not_to have_content(activity2.description)
   end
 
-  scenario "user clicks on second activity result and sees details", js: true do
-    # visit activities_path
-    page.find(".Select-arrow").click
-    find("div.Select-option", text: item.name).click
+  scenario "user clicks on second activity result and sees details" do
+    visit activities_path
+    page.find(".Select-arrow").trigger("click")
+    find("div.Select-option", text: item.name).trigger("click")
     sleep(1)
-    find("div.Select-option", text: item2.name).click
+    find("div.Select-option", text: item2.name).trigger("click")
     click_on activity.title
     click_on activity2.title
 
@@ -88,17 +84,17 @@ feature "user sees index page with search form" do
     expect(page).not_to have_content(activity.description)
   end
 
-  scenario "user removes item from list and results change", js: true do
-    # visit activities_path
-    page.find(".Select-arrow").click
-    find("div.Select-option", text: item2.name).click
+  scenario "user removes item from list and results change" do
+    visit activities_path
+    page.find(".Select-arrow").trigger("click")
+    find("div.Select-option", text: item2.name).trigger("click")
     sleep(1)
-    find("div.Select-option", text: item.name).click
+    find("div.Select-option", text: item.name).trigger("click")
 
     expect(page).to have_content(activity.title)
     expect(page).to have_content(activity2.title)
 
-    first(".Select-value-icon").click
+    first(".Select-value-icon").trigger("click")
 
     expect(page).to have_content(activity.title)
     expect(page).not_to have_content(activity2.title)

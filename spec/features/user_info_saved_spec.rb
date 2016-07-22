@@ -11,8 +11,8 @@ feature "user restarts session and sees persisted results", js: true do
 
   scenario "user sees previously stored item data" do
     visit activities_path
-    page.find(".Select-arrow").click
-    find("div.Select-option", text: item.name).click
+    page.find(".Select-arrow").trigger("click")
+    find("div.Select-option", text: item.name).trigger("click")
     expire_cookies
     sleep(1)
     visit activities_path
