@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "user sees index page with search form", js: true do
+feature "user sees index page with search form" do
   let!(:activity) { FactoryGirl.create(:activity) }
   let!(:activity2) { FactoryGirl.create(:activity) }
   let!(:item) { FactoryGirl.create(:item) }
@@ -9,8 +9,12 @@ feature "user sees index page with search form", js: true do
   let!(:ai2) { FactoryGirl.create(:activityitem, activity_id: activity2.id, item_id: item.id) }
   let!(:ai3) { FactoryGirl.create(:activityitem, activity_id: activity2.id, item_id: item2.id) }
 
-  scenario "user visits root path and sees search form" do
+  before(:each) do
     visit root_path
+  end
+
+  scenario "user visits root path and sees search form", js: true do
+    # visit root_path
     page.find(".Select-arrow").click
 
     expect(page).to have_content("Welcome! Select some items")
@@ -20,8 +24,8 @@ feature "user sees index page with search form", js: true do
     expect(page).not_to have_content(activity2.title)
   end
 
-  scenario "user fills out search form and sees results" do
-    visit activities_path
+  scenario "user fills out search form and sees results", js: true do
+    # visit activities_path
     page.find(".Select-arrow").click
     find("div.Select-option", text: item.name).click
 
@@ -34,8 +38,8 @@ feature "user sees index page with search form", js: true do
     expect(page).to have_css(".Select-value-label", text: item.name)
   end
 
-  scenario "user fills out search form and sees multiple activities" do
-    visit activities_path
+  scenario "user fills out search form and sees multiple activities", js: true do
+    # visit activities_path
     page.find(".Select-arrow").click
     find("div.Select-option", text: item.name).click
     sleep(1)
@@ -47,8 +51,8 @@ feature "user sees index page with search form", js: true do
     expect(page).not_to have_content(activity2.description)
   end
 
-  scenario "user fills out search form and clicks on result to view it" do
-    visit activities_path
+  scenario "user fills out search form and clicks on result to view it", js: true do
+    # visit activities_path
     page.find(".Select-arrow").click
     find("div.Select-option", text: item.name).click
     sleep(1)
@@ -65,8 +69,8 @@ feature "user sees index page with search form", js: true do
     expect(page).not_to have_content(activity2.description)
   end
 
-  scenario "user clicks on second activity result and sees details" do
-    visit activities_path
+  scenario "user clicks on second activity result and sees details", js: true do
+    # visit activities_path
     page.find(".Select-arrow").click
     find("div.Select-option", text: item.name).click
     sleep(1)
@@ -84,8 +88,8 @@ feature "user sees index page with search form", js: true do
     expect(page).not_to have_content(activity.description)
   end
 
-  scenario "user removes item from list and results change" do
-    visit activities_path
+  scenario "user removes item from list and results change", js: true do
+    # visit activities_path
     page.find(".Select-arrow").click
     find("div.Select-option", text: item2.name).click
     sleep(1)
