@@ -23,6 +23,7 @@ group :test do
   gem 'launchy', require: false
   gem 'coveralls', require: false
   gem 'show_me_the_cookies'
+  gem 'database_cleaner'
 end
 
 group :production do

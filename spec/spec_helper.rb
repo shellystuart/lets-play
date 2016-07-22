@@ -87,5 +87,6 @@ end
 
 Capybara::Webkit.configure do |config|
   config.allow_unknown_urls
-  Capybara.javascript_driver = :webkit
 end
+
+Capybara.javascript_driver = :webkit

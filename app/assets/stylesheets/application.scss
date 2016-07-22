@@ -1,4 +1,6 @@
 @import "foundation_and_overrides";
+@import "react-select";
+$grey: #e6e6e6;
 
 .form {
   width: 414px;
@@ -22,6 +24,16 @@
   font-size: 1.5rem;
 }
 
+.acc-content {
+  border: 1px solid $grey;
+  padding: 1rem;
+}
+
 .off-canvas-wrapper-inner, .off-canvas{
   min-height: 100vh;
+}
+
+.accordion-title::before,
+.accordion-title::after {
+  margin-top: -0.8rem;
 }
