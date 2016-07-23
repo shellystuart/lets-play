@@ -6,7 +6,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'foundation-rails'
-gem 'simple_form'
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'capybara'

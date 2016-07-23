@@ -18,7 +18,7 @@ class ActivityList extends Component {
 
   render() {
     let activities = this.props.activities.map(activity => {
-      const {id, title, description, instructions, image, url} = activity;
+      const {id, title, description, instructions, image, url, items} = activity;
       let status = "";
 
       if (activity.id === this.state.selectedActivityId) {
@@ -32,6 +32,7 @@ class ActivityList extends Component {
           key={id}
           title={title}
           description={description}
+          items={items}
           instructions={instructions}
           image={image}
           url={url}

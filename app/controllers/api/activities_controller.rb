@@ -1,36 +1,36 @@
 class Api::ActivitiesController < ApplicationController
-  def index
-    activities = Activity.all
-    searchresult = []
-    useritems = []
-    itemsearch = []
 
-    if cookies[:item_ids]
-      cookieitems = cookies[:item_ids].split(/&/)
-      cookieitems.each do |cookie|
-        useritems << cookie.to_i
-      end
-    end
+  def index
+    @activities = Activity.all
+    @search_result = []
+    @user_items = []
 
     if params["items"]
-      paramsitems = params["items"]["values"].split(",")
-      newitems = []
-      paramsitems.each do |item|
-        newitems << item.to_i
+      params_items = params["items"]["values"].split(",")
+      params_items.each do |item|
+        @user_items << item.to_i
       end
-      cookies[:item_ids] = { value: newitems, expires: 1.month.from_now }
-      useritems = newitems
+      cookies[:item_ids] = { value: @user_items, expires: 1.month.from_now }
+      activity_search
+    elsif cookies[:item_ids]
+      cookie_items = cookies[:item_ids].split(/&/)
+      cookie_items.each do |item|
+        @user_items << item.to_i
+      end
+      activity_search
     end
 
-    if useritems
-      itemsearch = Item.find(useritems)
-    end
+    render json: { activities: @search_result, selected: @user_items }, status: :ok
+  end
 
-    activities.each do |activity|
-      if activity.items.all? { |item| itemsearch.include?(item) }
-        searchresult << activity
+  private
+
+  def activity_search
+    item_search = Item.find(@user_items)
+    @activities.each do |activity|
+      if activity.items.all? { |item| item_search.include?(item) }
+        @search_result << ActivitySerializer.new(activity)
       end
     end
-    render json: { activities: searchresult, selected: useritems }, status: :ok
   end
 end
