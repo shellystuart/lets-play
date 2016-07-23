@@ -39,16 +39,14 @@ RSpec.describe Api::ActivitiesController, type: :controller do
     it "sets new cookie if items are selected via search" do
       get :index, items: { values: "1,2" }, format: :json
       json = JSON.parse(response.body)
-      activities = json["activities"].map { |c| c["id"] }
-      selected = json["selected"]
 
       expect(response.content_type).to eq("application/json")
       expect(response).to have_http_status(:ok)
       expect(cookies[:item_ids]).to match_array([item.id, item2.id])
     end
 
-    it "returns new selected items set and matching activities when items are selected via search" do
-      request.cookies[:item_ids] = "#{item.id}"
+    it "returns new selected items set and activities when new item selected" do
+      request.cookies[:item_ids] = item.id.to_s
       get :index, items: { values: "1,2" }, format: :json
       json = JSON.parse(response.body)
       activities = json["activities"].map { |c| c["id"] }
