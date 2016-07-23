@@ -14,11 +14,11 @@ class Api::ActivitiesController < ApplicationController
 
     if params["items"]
       paramsitems = params["items"]["values"].split(",")
-      cookies[:item_ids] = { value: paramsitems, expires: 1.month.from_now }
       newitems = []
       paramsitems.each do |item|
         newitems << item.to_i
       end
+      cookies[:item_ids] = { value: newitems, expires: 1.month.from_now }
       useritems = newitems
     end
 
