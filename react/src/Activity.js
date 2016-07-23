@@ -4,6 +4,12 @@ const Activity = props => {
   let details = null;
   let accClass = "acc-item";
 
+  let itemList = props.items.map(item => {
+    return (
+      <li>{item.name}</li>
+    );
+  });
+
   if (props.status === "active") {
     details =
       <div className="acc-content">
@@ -14,11 +20,12 @@ const Activity = props => {
           <div className="small-12 columns">
             <h4>Description</h4>
             <p>{props.description}</p>
+            <h4>Items needed</h4>
+            <ul>{itemList}</ul>
             <h4>Instructions</h4>
             <p>{props.instructions}</p>
             <p>
-              <strong>Source:</strong>
-              <a href={props.url}>{props.url}</a>
+              <strong>Source:</strong> <a href={props.url}>{props.url}</a>
             </p>
           </div>
         </div>

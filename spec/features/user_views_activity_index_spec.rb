@@ -57,9 +57,10 @@ feature "user sees index page with search form", js: true do
 
     expect(page).to have_content(activity.title)
     expect(page).to have_content(activity2.title)
-    expect(page).to have_content(activity.description)
     expect(page).to have_css("img[src*='assets/#{activity.image}']")
     expect(page).to have_content(activity.description)
+    expect(page).to have_css("li", text: item.name)
+    expect(page).not_to have_css("li", text: item2.name)
     expect(page).to have_content(activity.instructions)
     expect(page).to have_content(activity.url)
     expect(page).not_to have_content(activity2.description)
@@ -76,9 +77,10 @@ feature "user sees index page with search form", js: true do
 
     expect(page).to have_content(activity.title)
     expect(page).to have_content(activity2.title)
-    expect(page).to have_content(activity2.description)
     expect(page).to have_css("img[src*='assets/#{activity2.image}']")
     expect(page).to have_content(activity2.description)
+    expect(page).to have_css("li", text: item.name)
+    expect(page).to have_css("li", text: item2.name)
     expect(page).to have_content(activity2.instructions)
     expect(page).to have_content(activity2.url)
     expect(page).not_to have_content(activity.description)
