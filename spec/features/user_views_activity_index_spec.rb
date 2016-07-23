@@ -3,8 +3,9 @@ require "rails_helper"
 feature "user sees index page with search form", js: true do
   let!(:activity) { FactoryGirl.create(:activity) }
   let!(:activity2) { FactoryGirl.create(:activity) }
-  let!(:item) { FactoryGirl.create(:item) }
-  let!(:item2) { FactoryGirl.create(:item) }
+  let!(:item) { FactoryGirl.create(:item, name: "sponges") }
+  let!(:item2) { FactoryGirl.create(:item, name: "scissors") }
+  let!(:item3) { FactoryGirl.create(:item, name: "paper") }
   let!(:ai1) { FactoryGirl.create(:activityitem, activity_id: activity.id, item_id: item.id) }
   let!(:ai2) { FactoryGirl.create(:activityitem, activity_id: activity2.id, item_id: item.id) }
   let!(:ai3) { FactoryGirl.create(:activityitem, activity_id: activity2.id, item_id: item2.id) }
@@ -16,8 +17,22 @@ feature "user sees index page with search form", js: true do
     expect(page).to have_content("Welcome! Select some items")
     expect(page).to have_content(item.name)
     expect(page).to have_content(item2.name)
+    expect(page).to have_content(item3.name)
     expect(page).not_to have_content(activity.title)
     expect(page).not_to have_content(activity2.title)
+  end
+
+  scenario "user sees items in alphabetical order" do
+    visit activities_path
+    find(".Select-arrow").click
+    sleep(1)
+
+    first_item_position = page.body.index(item.name)
+    second_item_position = page.body.index(item2.name)
+    third_item_position = page.body.index(item3.name)
+
+    expect(first_item_position).to be > second_item_position
+    expect(second_item_position).to be > third_item_position
   end
 
   scenario "user fills out search form and sees results" do
