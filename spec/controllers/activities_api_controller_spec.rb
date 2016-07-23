@@ -38,7 +38,6 @@ RSpec.describe Api::ActivitiesController, type: :controller do
 
     it "sets new cookie if items are selected via search" do
       get :index, items: { values: "1,2" }, format: :json
-      json = JSON.parse(response.body)
 
       expect(response.content_type).to eq("application/json")
       expect(response).to have_http_status(:ok)
