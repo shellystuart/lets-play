@@ -27,8 +27,6 @@
   pointer-events: none;
 }
 .Select-control {
-  background-color: #fff;
-  border-color: #d9d9d9 #ccc #b3b3b3;
   border-radius: 4px;
   border: 1px solid #ccc;
   color: #333;
@@ -40,7 +38,10 @@
   outline: none;
   overflow: hidden;
   position: relative;
-  width: 100%;
+  width: 97%;
+  margin-left: 10px;
+  background-color: #f6f6f6;
+  padding: 5px;
 }
 .Select-control:hover {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
@@ -54,7 +55,7 @@
 .is-open > .Select-control {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
-  background: #fff;
+  background: #f6f6f6;
   border-color: #b3b3b3 #ccc #d9d9d9;
 }
 .is-open > .Select-control > .Select-arrow {
@@ -229,16 +230,17 @@
 .Select-menu-outer {
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
-  background-color: #fff;
+  background-color: #f6f6f6;
   border: 1px solid #ccc;
   border-top-color: #e6e6e6;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
   box-sizing: border-box;
   margin-top: -1px;
+  margin-left: 10px;
   max-height: 200px;
   position: absolute;
   top: 100%;
-  width: 100%;
+  width: 97%;
   z-index: 1;
   -webkit-overflow-scrolling: touch;
 }
@@ -248,7 +250,7 @@
 }
 .Select-option {
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: #f6f6f6;
   color: #666666;
   cursor: pointer;
   display: block;
@@ -265,9 +267,7 @@
   color: #333;
 }
 .Select-option.is-focused {
-  background-color: #ebf5ff;
-  /* Fallback color for IE 8 */
-  background-color: rgba(0, 126, 255, 0.08);
+  background-color: #dcefef;
   color: #333;
 }
 .Select-option.is-disabled {
@@ -290,14 +290,10 @@
   margin-left: 5px;
 }
 .Select--multi .Select-value {
-  background-color: #ebf5ff;
-  /* Fallback color for IE 8 */
-  background-color: rgba(0, 126, 255, 0.08);
+  background-color: #66b9bf;
   border-radius: 2px;
-  border: 1px solid #c2e0ff;
-  /* Fallback color for IE 8 */
-  border: 1px solid rgba(0, 126, 255, 0.24);
-  color: #007eff;
+  border: 1px solid #07889b;
+  color: #fefefe;
   display: inline-block;
   font-size: 0.9em;
   line-height: 1.4;
@@ -328,17 +324,12 @@
   cursor: pointer;
   border-bottom-left-radius: 2px;
   border-top-left-radius: 2px;
-  border-right: 1px solid #c2e0ff;
-  /* Fallback color for IE 8 */
-  border-right: 1px solid rgba(0, 126, 255, 0.24);
+  border-right: 1px solid #07889b;
   padding: 1px 5px 3px;
 }
 .Select--multi .Select-value-icon:hover,
 .Select--multi .Select-value-icon:focus {
-  background-color: #d8eafd;
-  /* Fallback color for IE 8 */
-  background-color: rgba(0, 113, 230, 0.08);
-  color: #0071e6;
+  background-color: #07889b;
 }
 .Select--multi .Select-value-icon:active {
   background-color: #c2e0ff;
