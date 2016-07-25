@@ -6,7 +6,7 @@ const Activity = props => {
 
   let itemList = props.items.map(item => {
     return (
-      <li>{item.name}</li>
+      <li key={item.id}>{item.name}</li>
     );
   });
 

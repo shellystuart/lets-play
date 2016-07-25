@@ -112,9 +112,9 @@ $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-sizes: (
   small: (
     'h1': 40,
-    'h2': 20,
-    'h3': 19,
-    'h4': 18,
+    'h2': 36,
+    'h3': 31,
+    'h4': 24,
     'h5': 17,
     'h6': 16,
   ),
@@ -236,7 +236,7 @@ $breadcrumbs-item-slash: true;
 // 11. Button
 // ----------
 
-$button-padding: 0.85em 1em;
+$button-padding: 0.85em 0.5em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
 $button-background: $teal;
@@ -405,7 +405,7 @@ $offcanvas-zindex: -1;
 $offcanvas-transition-length: 0.5s;
 $offcanvas-transition-timing: ease;
 $offcanvas-fixed-reveal: false;
-$offcanvas-exit-background: rgba($white, 0.25);
+$offcanvas-exit-background: rgba($light-gray, 0.5);
 $maincontent-class: 'off-canvas-content';
 $maincontent-shadow: 0;
 

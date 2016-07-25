@@ -1,5 +1,6 @@
 @import "foundation_and_overrides";
 @import "react-select";
+
 $tangerine: #e37222;
 $teal: #07889b;
 $powder: #66b9bf;
@@ -35,6 +36,7 @@ $white: #fefefe;
 
 .accordion {
   border-radius: 10px;
+  margin-left: 0.5rem;
 }
 
 .accordion-title {
@@ -92,6 +94,7 @@ $white: #fefefe;
   background-color: $teal;
   color: $white;
   border-radius: 10px;
+  margin-left: 0.5rem;
 }
 
 .Select-placeholder {
@@ -100,4 +103,13 @@ $white: #fefefe;
 
 .button {
   border-radius: 10px;
+}
+
+.content.row {
+  max-width: 130rem;
+}
+
+.off-canvas-content {
+  margin-left: 10px;
+  margin-right: 10px;
 }
