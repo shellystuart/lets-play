@@ -33,14 +33,49 @@ $white: #fefefe;
   margin-bottom: 0;
 }
 
+.accordion {
+  border-radius: 10px;
+}
+
 .accordion-title {
   font-size: 1.75rem;
   font-family: 'Love Ya Like A Sister', cursive;
-  color: $black;
+  color: $white;
+  background-color: $teal;
+}
+
+.acc-item:first-child .accordion-title {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.acc-item:last-child .accordion-title {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.acc-item.is-active:last-child .accordion-title {
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.acc-item.is-active:last-child .acc-content {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom: 1px solid $medium-gray;
+}
+
+.accordion-title:hover,
+.accordion-title:focus,
+.is-active .accordion-title {
+  background-color: $powder;
+  color: $white;
 }
 
 .acc-content {
-  border: 1px solid $medium-gray;
+  border-width: 0 1px;
+  border-style: solid;
+  border-color: $medium-gray;
   padding: 1rem;
 }
 
@@ -51,4 +86,18 @@ $white: #fefefe;
 .accordion-title::before,
 .accordion-title::after {
   margin-top: -0.8rem;
+}
+
+.callout.primary {
+  background-color: $teal;
+  color: $white;
+  border-radius: 10px;
+}
+
+.Select-placeholder {
+  padding-top: 9px;
+}
+
+.button {
+  border-radius: 10px;
 }
