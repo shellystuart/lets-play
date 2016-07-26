@@ -14,7 +14,7 @@ feature "user sees index page with search form", js: true do
     visit root_path
     page.find(".Select-arrow").click
 
-    expect(page).to have_content("Welcome! Select some items")
+    expect(page).to have_content("Welcome! Let's Play makes it easy")
     expect(page).to have_content(item.name)
     expect(page).to have_content(item2.name)
     expect(page).to have_content(item3.name)
