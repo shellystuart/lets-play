@@ -30,6 +30,7 @@ class ActivityList extends Component {
       return (
         <Activity
           key={id}
+          id={id}
           title={title}
           description={description}
           items={items}

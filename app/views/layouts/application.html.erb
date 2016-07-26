@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister|Open+Sans" rel="stylesheet" />
+  </head>
 
-<body>
-      <div class="top-bar">
-        <div class="small-3 columns hide-for-medium">
-          <button type="button" data-toggle="offCanvas" class="button">Select Items</button>
-        </div>
-        <div class="small-9 medium-12 columns">
-          <h3>Let's Play!</h3>
-        </div>
+  <body>
+    <div class="top-bar">
+      <button type="button" data-open="offCanvas" class="hide" id="button">Show/Hide Items</button>
+      <div class="small-12 columns">
+        <h1>Let's Play!</h1>
       </div>
-      <div class="off-canvas-wrapper">
-        <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
-      <%= yield %>
     </div>
-  </div>
-</body>
+    <div class="off-canvas-wrapper">
+      <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+        <%= yield %>
+      </div>
+    </div>
+  </body>
 </html>
