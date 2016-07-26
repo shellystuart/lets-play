@@ -26,7 +26,10 @@ class ItemForm extends Component {
   render() {
     let onSelectChange = value => this.props.handleSelectChange(value);
     return (
-      <Select multi simpleValue value={this.props.value} placeholder="Select Items" options={this.state.options} onChange={onSelectChange} />
+      <div className="select-list">
+        <h4>Your Items:</h4>
+        <Select multi simpleValue value={this.props.value} placeholder="Select Items" options={this.state.options} onChange={onSelectChange} />
+      </div>
     );
   }
 }

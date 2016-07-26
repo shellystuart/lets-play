@@ -46,7 +46,10 @@ class ActivityList extends Component {
     let content;
     if (this.props.activities.length === 0) {
       content = <div className="callout primary text-center">
-        Welcome!  Select some items so we can suggest an activity!
+        <h3>Welcome!</h3>
+        <p>Let's Play makes it easy to find activities to do with your kids based on items you already have at home.</p>
+        <p className="hide-for-small-only">Select some items so we can suggest an activity!</p>
+        <p className="hide-for-medium">Just click the top button or swipe right to select some items so we can suggest an activity!</p>
         </div>;
     } else {
       content = <ul className="accordion">
