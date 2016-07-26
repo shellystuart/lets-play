@@ -11,6 +11,11 @@ $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $white: #fefefe;
 
+h1,
+h4 {
+  margin-top: 0.5rem;
+}
+
 .form {
   width: 414px;
 }
@@ -103,6 +108,7 @@ $white: #fefefe;
 
 .button {
   border-radius: 10px;
+  margin-top: 0.5rem;
 }
 
 .content.row {
@@ -112,4 +118,10 @@ $white: #fefefe;
 .off-canvas-content {
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.select-list h4 {
+  color: $tangerine;
+  margin-left: 22px;
+  margin-top: 0;
 }
