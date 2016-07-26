@@ -11,7 +11,8 @@ $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $white: #fefefe;
 
-h1, h4 {
+h1,
+h4 {
   margin-top: 0.5rem;
 }
 
@@ -120,7 +121,7 @@ h1, h4 {
 }
 
 .select-list h4 {
-  margin-top: 0;
-  margin-left: 22px;
   color: $tangerine;
+  margin-left: 22px;
+  margin-top: 0;
 }
