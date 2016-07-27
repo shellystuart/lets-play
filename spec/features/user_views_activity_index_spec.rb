@@ -6,7 +6,7 @@ feature "user sees index page with search form", js: true do
   let!(:item) { FactoryGirl.create(:item, name: "sponges") }
   let!(:item2) { FactoryGirl.create(:item, name: "scissors") }
   let!(:item3) { FactoryGirl.create(:item, name: "paper") }
-  let!(:ai1) { FactoryGirl.create(:activityitem, activity_id: activity.id, item_id: item.id) }
+  let!(:ai1) { FactoryGirl.create(:activityitem, activity_id: activity.id, item_id: item.id, quantity: "2") }
   let!(:ai2) { FactoryGirl.create(:activityitem, activity_id: activity2.id, item_id: item.id) }
   let!(:ai3) { FactoryGirl.create(:activityitem, activity_id: activity2.id, item_id: item2.id) }
 
@@ -74,7 +74,7 @@ feature "user sees index page with search form", js: true do
     expect(page).to have_content(activity2.title)
     expect(page).to have_css("img[src*='assets/#{activity.image}']")
     expect(page).to have_content(activity.description)
-    expect(page).to have_css("li", text: item.name)
+    expect(page).to have_css("li", text: "#{ai1.quantity} #{item.name}")
     expect(page).not_to have_css("li", text: item2.name)
     expect(page).to have_content(activity.instructions)
     expect(page).to have_content(activity.url)
@@ -94,6 +94,7 @@ feature "user sees index page with search form", js: true do
     expect(page).to have_content(activity2.title)
     expect(page).to have_css("img[src*='assets/#{activity2.image}']")
     expect(page).to have_content(activity2.description)
+    expect(page).not_to have_css("li", text: "#{ai1.quantity} #{item.name}")
     expect(page).to have_css("li", text: item.name)
     expect(page).to have_css("li", text: item2.name)
     expect(page).to have_content(activity2.instructions)
