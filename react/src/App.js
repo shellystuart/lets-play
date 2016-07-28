@@ -11,6 +11,7 @@ class App extends Component {
     };
 
     this.handleSelect = this.handleSelect.bind(this);
+    this.handleFilter = this.handleFilter.bind(this);
   }
 
   componentDidMount() {
@@ -42,6 +43,20 @@ class App extends Component {
     });
   }
 
+  handleFilter(selected) {
+    $.ajax({
+      method: "GET",
+      url: "/api/activities",
+      contentType: "application/json",
+      data: {
+        indoor: selected.target.value
+      }
+    })
+    .done(data => {
+      this.setState({activities: data.activities});
+    });
+  }
+
   render() {
     return (
       <div className="content row">
@@ -49,6 +64,7 @@ class App extends Component {
           <ItemForm
             value={this.state.selectedItems}
             handleSelectChange={this.handleSelect}
+            handleFilterChange={this.handleFilter}
           />
         </div>
         <div className="off-canvas-content" data-off-canvas-content>

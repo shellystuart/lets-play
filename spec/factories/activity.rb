@@ -7,5 +7,6 @@ FactoryGirl.define do
     instructions { Faker::Hipster.paragraph }
     image "color-bag-mixing.jpg"
     url { Faker::Internet.url }
+    indoor true
   end
 end

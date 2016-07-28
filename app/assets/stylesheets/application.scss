@@ -121,8 +121,23 @@ h4 {
   margin-right: 10px;
 }
 
-.select-list h4 {
+.select-list h4,
+.select-list h3 {
   color: $tangerine;
   margin-left: 22px;
   margin-top: 0;
+}
+
+.select-list:last-child h4 {
+  margin-top:10px;
+}
+
+#indoor {
+  color: #aaa;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  height: 52px;
+  width: 97%;
+  margin-left: 10px;
+  padding-left: 10px;
 }

@@ -25,10 +25,17 @@ class ItemForm extends Component {
 
   render() {
     let onSelectChange = value => this.props.handleSelectChange(value);
+    let onFilterChange = selected => this.props.handleFilterChange(selected);
     return (
       <div className="select-list">
-        <h4>Your Items:</h4>
+        <h3>Your Items:</h3>
         <Select multi simpleValue value={this.props.value} placeholder="Select Items" options={this.state.options} onChange={onSelectChange} />
+        <h4>Filter Results:</h4>
+        <select defaultValue="" onChange={onFilterChange} id="indoor">
+          <option value="">Indoor/Outdoor</option>
+          <option value="true">Indoor</option>
+          <option value="false">Outdoor</option>
+        </select>
       </div>
     );
   }

@@ -20,6 +20,18 @@ class Api::ActivitiesController < ApplicationController
       activity_search
     end
 
+    if !params["indoor"].nil? && params["indoor"] != ""
+      filtered_result = []
+      @search_result.each do |activity|
+        if activity.indoor.to_s == params["indoor"]
+          filtered_result << activity
+        end
+      end
+      @search_result = filtered_result
+    end
+
+    @search_result.map!{|x| ActivitySerializer.new(x)}
+
     render json: { activities: @search_result, selected: @user_items }, status: :ok
   end
 
@@ -29,7 +41,7 @@ class Api::ActivitiesController < ApplicationController
     item_search = Item.find(@user_items)
     @activities.each do |activity|
       if activity.items.all? { |item| item_search.include?(item) }
-        @search_result << ActivitySerializer.new(activity)
+        @search_result << activity
       end
     end
   end
