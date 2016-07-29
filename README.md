@@ -26,11 +26,11 @@ Filter activities by whether they are indoor or outdoor.
 
 ### View Activities
 
-Activities list is updated as items and filters are added.  Results are shown in an accordion-style list, with details available by clicking on the title of the activity.
+The activities list is updated as items and filters are added.  Results are shown in an accordion-style list, with details available by clicking on the title of the activity.
 
 ### Mobile View
 
-App is optimized for mobile devices.  React-Select tool is off-canvas on small mobile screens, with the option to click a button or swipe right to access.
+The app is optimized for mobile devices.  The React-Select tool and filtering is off-canvas on small mobile screens, with the option to click a button or swipe right to access.
 
 ## Download
 ```
