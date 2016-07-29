@@ -1,7 +1,7 @@
 {
   "name": "lets-play",
   "version": "1.0.0",
-  "description": "",
+  "description": "A web app for parents to quickly find activities they can do with their kids using items they have at home",
   "main": "webpack.config.js",
   "scripts": {
     "heroku-postbuild": "NODE_ENV=production npm run webpack -- -p",
