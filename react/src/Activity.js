@@ -25,7 +25,7 @@ const Activity = props => {
             <h4>Instructions</h4>
             <p>{props.instructions}</p>
             <p>
-              <strong>Source:</strong> <a href={props.url}>{props.url}</a>
+              <strong>Source:</strong> <a href={props.url} target="blank">{props.url}</a>
             </p>
           </div>
         </div>
