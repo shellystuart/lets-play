@@ -10,6 +10,8 @@ $light-gray: #e8e8e8;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $white: #fefefe;
+$select-dark-gray: #aaaaaa;
+$select-light-gray: #cccccc;
 
 h1,
 h4 {
@@ -133,11 +135,11 @@ h4 {
 }
 
 #indoor {
-  color: #aaa;
+  border: 1px solid $select-light-gray;
   border-radius: 10px;
-  border: 1px solid #ccc;
+  color: $select-dark-gray;
   height: 52px;
-  width: 97%;
   margin-left: 10px;
   padding-left: 10px;
+  width: 97%;
 }
