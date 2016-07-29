@@ -70,6 +70,26 @@ glue_sticks = Item.find_or_create_by!({
   name: "glue sticks"
 })
 
+sheet = Item.find_or_create_by!({
+  name: "sheet"
+})
+
+nails = Item.find_or_create_by!({
+  name: "nails"
+})
+
+sidewalk_chalk = Item.find_or_create_by!({
+  name: "sidewalk chalk"
+})
+
+cornstarch = Item.find_or_create_by!({
+  name: "cornstarch"
+})
+
+food_coloring = Item.find_or_create_by!({
+  name: "food coloring"
+})
+
 tangrams = Activity.find_or_create_by!({
   title: "Sponge Tangrams",
   description: "Tangrams are a fun and easy way to work on visual perception and visual motor integration skills through play.  These sponge tangrams are a quick DIY activity that kids will love.  The whole project will cost you $1, making it a creative and frugal way to play while sneaking in therapeutic and developmental skills.
@@ -157,7 +177,8 @@ bubble_blower = Activity.find_or_create_by!({
 
   Add some bubble solution in a shallow bowl so your bottle will fit over. Dip in the solution and then blow!",
   image: "recycled-bottle-bubble-blower.jpg",
-  url: "http://www.hellowonderful.co/post/DIY-RECYCLED-BOTTLE-BUBBLE-BLOWER"
+  url: "http://www.hellowonderful.co/post/DIY-RECYCLED-BOTTLE-BUBBLE-BLOWER",
+  indoor: false
 })
 
 Activityitem.find_or_create_by!({
@@ -318,4 +339,118 @@ Activityitem.find_or_create_by!({
 Activityitem.find_or_create_by!({
   activity_id: tp_roll_maracas.id,
   item_id: scissors.id
+})
+
+art_on_lawn = Activity.find_or_create_by!({
+  title: "Art on the Lawn",
+  description: "Make a giant mural outdoors!",
+  instructions: "First, you need a BIG sheet (and a twirling preschooler).
+
+  Any ol' sheet will do.  We purchased ours for two bucks at a thrift store.
+
+  Next, you'll want to stake the sheet down on your lawn.  I pushed some long nails through each corner of the sheet, all the way down into the grass so that only the nail heads were showing.
+
+  Fill some styrofoam bowls with a variety of paint colors.  Don't forget the sponge paint brushes!  (Oooh, or kiddos could use their fingers and hands to create messy, Pollock-type art!)
+
+  Last step:  Have fun painting happy little trees...or whatever you'd like...with your children!  (Did you catch my Bob Ross reference?!  Did you?!  Did you?)",
+  image: "art-on-lawn.jpg",
+  url: "http://www.callmemamaleisha.com/2011/07/art-on-lawn.html",
+  indoor: false
+})
+
+Activityitem.find_or_create_by!({
+  activity_id: art_on_lawn.id,
+  item_id: sheet.id
+})
+
+Activityitem.find_or_create_by!({
+  activity_id: art_on_lawn.id,
+  item_id: nails.id
+})
+
+Activityitem.find_or_create_by!({
+  activity_id: art_on_lawn.id,
+  item_id: tempera_paint.id
+})
+
+Activityitem.find_or_create_by!({
+  activity_id: art_on_lawn.id,
+  item_id: paintbrush.id
+})
+
+sidewalk_chalk_letters = Activity.find_or_create_by!({
+  title: "Sidewalk Chalk Letter Activities",
+  description: "Practice letters while having fun with sidewalk chalk",
+  instructions: "<strong>Find The Letter/Letter Sound</strong>
+
+  Simple game of me calling out a letter and my daughter would run to it. After she found them all easily I turned it to letter sounds which was much more challenging . I only did a few letter sounds not expecting her to know them but introducing them playfully.
+
+  <strong>Letter Action Words</strong>
+  This continues the find the letter with a little more movement. I called out the letter and asked her to perform an action that starts with that letter . So I would say ” Can you jump on the j? ” and ” Now wiggle on the w ! ”  as you can see she had a blast with this one. I will be repeating this for sure!
+
+  <strong>Walk and Spell</strong>
+  Now it was time to get the big guy over. The object of this activity was to spell out simple words by walking to each letter. I called out simple words like hat, bat, cap, tap, jam, Sam … I chose to always call out one word then after he was successful a 2nd changing only the first letter . This set him up for success while still offering a challenge.
+
+  <strong>Read and Spray</strong>
+  ( grab some spray bottles and fill with water)
+  This was really just my attempt to clean the cul-de-sac up. My kids went from letter to letter spraying and calling out the letter names.",
+  image: "sidewalk-chalk-letter.jpg",
+  url: "http://www.notimeforflashcards.com/2013/05/sidewalk-chalk-4-letter-activities.html",
+  indoor: false
+})
+
+Activityitem.find_or_create_by!({
+  activity_id: sidewalk_chalk_letters.id,
+  item_id: sidewalk_chalk.id
+})
+
+sponge_bullseye = Activity.find_or_create_by!({
+  title: "Sponge Bullseye",
+  description: "A quick game with sidewalk chalk and a wet sponge",
+  instructions: "For this game I drew a bullseye and assigned a points value to each circle of the target. The kids stood on the starting line (which in our case was different shapes) and tossed their sponge at the target.
+
+  I put the kids on teams and let each person on the team toss a sponge. Then, the kids worked together to add up their points.
+
+  You could use any number of points to differentiate this for the age of your child. We also turned the game around and had the little ones aim their sponges for different shapes.",
+  image: "sponge-bullseye.jpg",
+  url: "http://www.mamaslikeme.com/2012/07/fun-water-games-for-kids.html",
+  indoor: false
+})
+
+Activityitem.find_or_create_by!({
+  activity_id: sponge_bullseye.id,
+  item_id: sidewalk_chalk.id
+})
+
+Activityitem.find_or_create_by!({
+  activity_id: sponge_bullseye.id,
+  item_id: sponge.id
+})
+
+liquid_sidewalk_chalk = Activity.find_or_create_by!({
+  title: "Liquid Sidewalk Chalk",
+  description: "A simple recipe to make paintable sidewalk chalk.",
+  instructions: "You can find this recipe on a lot of different blogs out there, when I first saw the idea I knew I had to make some for Hudson. He loves it!
+
+  All you do is mix 1 cup of water with 1 cup of cornstarch. Then pour it into muffin tins or small cups. Next, add food coloring to make the colors you would like. I used food coloring gels and it made some very bright and vibrant colors!",
+  image: "liquid-sidewalk-chalk.jpg",
+  url: "http://domesticcharm.blogspot.com/2011/05/liquid-sidewalk-chalk.html",
+  indoor: false
+})
+
+Activityitem.find_or_create_by!({
+  activity_id: liquid_sidewalk_chalk.id,
+  item_id: water.id,
+  quantity: "1 cup"
+})
+
+Activityitem.find_or_create_by!({
+  activity_id: liquid_sidewalk_chalk.id,
+  item_id: cornstarch.id,
+  quantity: "1 cup"
+})
+
+Activityitem.find_or_create_by!({
+  activity_id: liquid_sidewalk_chalk.id,
+  item_id: food_coloring.id
 })

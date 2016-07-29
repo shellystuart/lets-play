@@ -10,6 +10,8 @@ $light-gray: #e8e8e8;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $white: #fefefe;
+$select-dark-gray: #aaaaaa;
+$select-light-gray: #cccccc;
 
 h1,
 h4 {
@@ -121,8 +123,23 @@ h4 {
   margin-right: 10px;
 }
 
-.select-list h4 {
+.select-list h4,
+.select-list h3 {
   color: $tangerine;
   margin-left: 22px;
   margin-top: 0;
+}
+
+.select-list:last-child h4 {
+  margin-top:10px;
+}
+
+#indoor {
+  border: 1px solid $select-light-gray;
+  border-radius: 10px;
+  color: $select-dark-gray;
+  height: 52px;
+  margin-left: 10px;
+  padding-left: 10px;
+  width: 97%;
 }

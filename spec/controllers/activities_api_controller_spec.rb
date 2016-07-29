@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe Api::ActivitiesController, type: :controller do
   describe "GET index" do
     let!(:activity) { FactoryGirl.create(:activity) }
-    let!(:activity2) { FactoryGirl.create(:activity) }
+    let!(:activity2) { FactoryGirl.create(:activity, indoor: false) }
     let!(:item) { FactoryGirl.create(:item) }
     let!(:item2) { FactoryGirl.create(:item) }
     let!(:ai1) { FactoryGirl.create(:activityitem, activity_id: activity.id, item_id: item.id) }
@@ -58,6 +58,46 @@ RSpec.describe Api::ActivitiesController, type: :controller do
       expect(activities[0]).to eq activity.id
       expect(activities[1]).to eq activity2.id
       expect(selected).to match_array([item.id, item2.id])
+    end
+
+    it "returns filtered items when outdoor selected" do
+      request.cookies[:item_ids] = "#{item.id}&#{item2.id}"
+      get :index, indoor: "false", format: :json
+      json = JSON.parse(response.body)
+      activities = json["activities"].map { |c| c["id"] }
+      selected = json["selected"]
+
+      expect(response.content_type).to eq("application/json")
+      expect(response).to have_http_status(:ok)
+      expect(activities.count).to be 1
+      expect(activities[0]).to eq activity2.id
+    end
+
+    it "returns filtered items when indoor selected" do
+      request.cookies[:item_ids] = "#{item.id}&#{item2.id}"
+      get :index, indoor: "true", format: :json
+      json = JSON.parse(response.body)
+      activities = json["activities"].map { |c| c["id"] }
+      selected = json["selected"]
+
+      expect(response.content_type).to eq("application/json")
+      expect(response).to have_http_status(:ok)
+      expect(activities.count).to be 1
+      expect(activities[0]).to eq activity.id
+    end
+
+    it "returns all items when indoor selector reset" do
+      request.cookies[:item_ids] = "#{item.id}&#{item2.id}"
+      get :index, indoor: "", format: :json
+      json = JSON.parse(response.body)
+      activities = json["activities"].map { |c| c["id"] }
+      selected = json["selected"]
+
+      expect(response.content_type).to eq("application/json")
+      expect(response).to have_http_status(:ok)
+      expect(activities.count).to be 2
+      expect(activities[0]).to eq activity.id
+      expect(activities[1]).to eq activity2.id
     end
   end
 end
